@@ -64,8 +64,8 @@ android {
         applicationId "dev.mdma.forum.app"
         minSdkVersion 19
         targetSdkVersion 31
-        versionCode 1000
-        versionName "1.0.0.0"
+        versionCode 1001
+        versionName "1.0.0.1"
 
         // The name for the application
         resValue "string", "appName", twaManifest.name
