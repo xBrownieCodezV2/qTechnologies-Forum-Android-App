@@ -51,7 +51,6 @@ def twaManifest = [
 ]
 
 android {
-
     compileSdkVersion 31
     defaultConfig {
         applicationId "dev.mdma.forum.app"
@@ -135,7 +134,7 @@ android {
 
         resValue "bool", "enableSiteSettingsShortcut", twaManifest.enableSiteSettingsShortcut
         resValue "string", "orientation", twaManifest.orientation
-        signingConfig signingConfigs.release
+        
     }
     buildTypes {
         release {
