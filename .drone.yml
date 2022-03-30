@@ -4,9 +4,11 @@ name: default
 
 steps:
   - name: build
-    image: gradle:jdk10
+    image: javiersantos/android-ci:latest
     volumes:
       - name: cache
         path: /root/.gradle/
     commands:
+	- export GRADLE_USER_HOME=`pwd`/.gradle
+      - chmod +x ./gradlew
       - gradlew assembleDebug
