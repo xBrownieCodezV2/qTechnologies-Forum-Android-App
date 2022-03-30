@@ -9,4 +9,4 @@ steps:
       - name: cache
         path: /root/.gradle/
     commands:
-	  - gradle assembleDebug
+      - gradle assembleDebug
