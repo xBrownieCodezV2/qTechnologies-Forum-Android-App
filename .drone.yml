@@ -9,6 +9,4 @@ steps:
       - name: cache
         path: /root/.gradle/
     commands:
-	  - "export GRADLE_USER_HOME=`pwd`/.gradle"
-      - "chmod +x ./gradlew"
-      - "gradlew assembleDebug"
+	  - gradle assembleDebug
