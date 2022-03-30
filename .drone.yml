@@ -7,6 +7,6 @@ steps:
     image: gradle:jdk10
     volumes:
       - name: cache
-        path: /root/.gradle
+        path: /root/.gradle/
     commands:
-      - gradle build
+      - gradlew assembleDebug
