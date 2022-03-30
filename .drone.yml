@@ -1,9 +1,12 @@
 kind: pipeline
-type: kubernetes
+type: docker
 name: default
 
 steps:
-- name: build
-  image: gradle:jdk10
-  commands:
-  - gradle build debug
+  - name: build
+    image: gradle:jdk10
+    volumes:
+      - name: cache
+        path: /root/.gradle
+    commands:
+      - export gradle build
