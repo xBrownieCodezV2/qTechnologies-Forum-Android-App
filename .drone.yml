@@ -1,0 +1,32 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+  - name: authenticate
+    image: robertstettner/drone-mvn-auth
+    volumes:
+      - name: cache
+        path: /root/.m2
+    settings:
+      servers:
+        from_secret: nexus
+  - name: build
+    image: maven:3.6.3-jdk-8
+    volumes:
+      - name: cache
+        path: /root/.m2
+    commands:
+      - export M2_HOME=/usr/share/maven
+      - mvn package -gs settings.xml
+  - name: release
+    image: plugins/github-release
+    settings:
+      api_key:
+        from_secret: release_api_key
+      files:
+        - target/*.jar
+      checksum:
+        - sha256
+    when:
+      event: tag
